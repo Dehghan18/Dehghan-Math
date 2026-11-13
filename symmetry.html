@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مرکز تقارن | دبیر ریاضی پایه هشتم دهقان</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&display=swap">
+<style>
+:root{--bg:#f2f7f6;--ink:#0f3d3e;--card:#fff;--line:#c9dcd9;--pur:#7b2d6b;--org:#ee7b30;--ok:#1a8a4a;--no:#c43a3a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1f20;--ink:#e3f1ef;--card:#16302f;--line:#2c4e4c;--pur:#d58bc6;--org:#ff9a52;--ok:#4cd081;--no:#ff7a7a}}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.9}
+main{max-width:920px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.7rem;margin:.2em 0 .1em;font-weight:800}
+h2{font-size:1.2rem;margin:1.6em 0 .3em;font-weight:800}
+p{margin:.3em 0}
+.box{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px}
+svg{width:100%;height:auto;display:block}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}
+button{font:inherit;font-weight:700;background:var(--ink);color:var(--bg);border:0;border-radius:10px;padding:6px 16px;cursor:pointer}
+button.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--org);outline-offset:2px}
+input[type=range]{flex:1;min-width:140px;direction:ltr;accent-color:var(--org)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:10px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:8px 10px;transition:border-color .3s}
+.card.yes{border-color:var(--ok)}.card.no{border-color:var(--no)}
+.card .t{display:flex;justify-content:space-between;align-items:center;font-weight:800}
+.v{font-weight:800;min-height:1.9em}
+.v.yes{color:var(--ok)}.v.no{color:var(--no)}
+.o *{stroke:var(--pur);fill:color-mix(in srgb,var(--pur) 10%,transparent);stroke-width:2.5;stroke-linejoin:round}
+.c *{stroke:var(--org);fill:color-mix(in srgb,var(--org) 14%,transparent);stroke-width:2.5;stroke-linejoin:round;stroke-dasharray:6 4}
+.dot{fill:#e23b3b}
+.lbl{font-size:13px;font-weight:800;fill:var(--ink)}
+</style>
+
+<style>
+:root{--bg:#edf4fb;--ink:#183254;--card:#ffffff;--line:#d6e3f1;--pur:#8c42bc;--org:#ee8a3b;--ok:#14865c;--no:#c63e53}
+body{background:radial-gradient(circle at 15% 0%,#dcecff,transparent 35%),var(--bg)}
+main{max-width:1100px}h1{font-size:clamp(1.6rem,4vw,2.5rem);color:#244da0}h2{border-right:5px solid #7a65e8;padding-right:12px;margin-top:32px}h3{margin:0 0 4px;color:#375aa0}
+.box,.card{box-shadow:0 8px 28px #294c7812;border-radius:20px}.box{padding:20px}button{background:#3659a6;color:white;transition:transform .15s}button:hover{transform:translateY(-1px)}button.alt{border-color:#3659a6;color:#3659a6}.polygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px;margin-top:12px}.polycard{border:1px solid var(--line);border-radius:16px;padding:12px;background:#f9fbff}.polycard svg{max-height:200px}.polycard .result{min-height:2em;font-weight:800}.polycard .controls{display:flex;gap:6px;flex-wrap:wrap}.polycard .controls button{font-size:.85rem;padding:5px 10px}.polycard input{width:100%}.polycard .answer{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0}.polycard label{cursor:pointer}.tag{background:#e8efff;padding:3px 10px;border-radius:12px;font-weight:800}.credit{display:inline-block;background:#e5ebff;border-radius:12px;padding:2px 12px}footer{text-align:center;padding:28px;font-weight:800;color:#4563a5}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101a2e;--ink:#edf2ff;--card:#1d2c46;--line:#394a69}.polycard{background:#233453}h1,h3{color:#b5c9ff}.tag,.credit{background:#31466b}button.alt{color:#c4d5ff;border-color:#c4d5ff}}
+</style>
+</head>
+<body>
+<main>
+<h1>✦ آزمایشگاه تعاملی مرکز تقارن</h1>
+<p style="font-weight:700;opacity:.85">دبیر ریاضی پایه هشتم: دهقان</p>
+<p>شکل را حول نقطهٔ قرمز <b>۱۸۰ درجه</b> بچرخانید. اگر شکل چرخیده دقیقاً روی شکل اصلی بنشیند، آن نقطه مرکز تقارن است.</p>
+
+
+<section class="lesson" id="activity3">
+<h2>بخش اول | فعالیت ۳ صفحهٔ ۳۳</h2>
+<p>در هر شکل، ابتدا پیش‌بینی کن؛ سپس با دکمه یا نوار زاویه، چندضلعی را حول نقطهٔ قرمز بچرخان و پاسخ را بررسی کن.</p>
+<div class="box"><h3>قسمت اول: کدام نقطه مرکز تقارن است؟</h3><p>چرخش ۱۸۰ درجه را امتحان کن. اگر شکل روی خودش قرار بگیرد، نقطهٔ مشخص‌شده مرکز تقارن است.</p><div class="polygrid" id="polys180"></div></div>
+<div class="box" style="margin-top:16px"><h3>قسمت دوم: کدام شکل با دوران ۹۰ درجه روی خودش می‌افتد؟</h3><p>این بار همان چهار چندضلعی را ۹۰ درجه در جهت عقربه‌های ساعت بچرخان.</p><div class="polygrid" id="polys90"></div></div>
+</section>
+
+<h2>بخش دوم | کار در کلاس: تکمیل شکل</h2>
+<div class="box">
+<div class="row" id="tabs" style="margin:0 0 8px"></div>
+<svg viewBox="0 0 300 240" role="img" aria-label="چرخش شکل حول نقطه O">
+<defs><pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="var(--line)" stroke-width="1"/></pattern></defs>
+<rect width="300" height="240" fill="url(#g)"/>
+<g id="lines" opacity="0" stroke="#2c9a63" stroke-width="1.6" stroke-dasharray="5 4"></g>
+<g class="o"><polygon id="po"/></g>
+<g class="c"><polygon id="tri"/></g>
+<circle class="dot" id="od" r="4.5"/><text class="lbl" id="ot">O</text>
+</svg>
+<div class="row"><button id="pt">▶ بچرخان</button><button class="alt" id="rt">از اول</button>
+<label for="sl">زاویه:</label><input id="sl" type="range" min="0" max="180" value="0"><b id="deg" dir="ltr">0°</b></div>
+<p id="note" style="min-height:3.4em">دقت کنید: هر رأس و تصویرش، روی یک خط از O قرار دارند و فاصله‌شان تا O برابر است.</p>
+</div>
+
+<h2>بخش سوم | تمرین: آیا نقطهٔ مشخص‌شده مرکز تقارن است؟</h2>
+<div class="row"><button id="all">▶ همهٔ شکل‌ها را بچرخان</button><button class="alt" id="rall">پاک‌کردن همه</button></div>
+<div class="grid" id="grid"></div>
+</main>
+<script>
+const NS="http://www.w3.org/2000/svg";
+const S=[
+{n:"الف",o:[100,80],y:0,s:'<polygon points="100,10 150,60 100,150 50,60"/>'},
+{n:"ب",o:[95,80],y:1,s:'<polygon points="50,40 170,40 140,120 20,120"/>'},
+{n:"ج",o:[100,80],y:1,s:'<rect x="20" y="30" width="160" height="100"/>'},
+{n:"د",o:[100,80],y:1,s:'<polygon points="100,15 165,80 100,145 35,80"/>'},
+{n:"ز",o:[110,85],y:0,s:'<polygon points="20,50 140,10 170,95 70,150"/>'},
+{n:"و",o:[100,80],y:1,s:'<rect x="75" y="10" width="50" height="140"/>'},
+{n:"ه",o:[100,80],y:1,s:'<polygon points="20,80 100,50 180,80 100,110"/>'},
+{n:"ط",o:[100,80],y:0,s:'<circle cx="100" cy="80" r="70"/><polygon points="100,10 117,70 160.6,115 100,100 39.4,115 83,70"/>'},
+{n:"ح",o:[100,80],y:1,s:'<circle cx="100" cy="80" r="70"/><path d="M30 80A35 35 0 0 1 100 80A35 35 0 0 0 170 80" fill="none"/>'}
+];
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+function run(draw,done,dur=2200){const t0=performance.now();(function f(n){const k=Math.min((n-t0)/dur,1);draw(180*ease(k));if(k<1)requestAnimationFrame(f);else done&&done()})(t0)}
+const rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+// triangle
+const tri=document.getElementById("tri"),lines=document.getElementById("lines"),sl=document.getElementById("sl"),deg=document.getElementById("deg"),note=document.getElementById("note");
+const PS=[
+{n:"شکل ۱",p:[[70,40],[170,30],[130,90]],o:[150,120]},
+{n:"شکل ۲",p:[[150,20],[90,120],[150,120]],o:[150,120]},
+{n:"شکل ۳",p:[[30,110],[125,45],[150,120]],o:[150,120]},
+{n:"شکل ۴",p:[[120,30],[190,30],[150,120]],o:[150,120]}];
+let cur=PS[0];
+function pick(i){cur=PS[i];const pts=cur.p.map(q=>q.join(",")).join(" ");po.setAttribute("points",pts);tri.setAttribute("points",pts);
+ od.setAttribute("cx",cur.o[0]);od.setAttribute("cy",cur.o[1]);ot.setAttribute("x",cur.o[0]+8);ot.setAttribute("y",cur.o[1]-4);
+ lines.innerHTML=cur.p.map(q=>`<line x1="${q[0]}" y1="${q[1]}" x2="${2*cur.o[0]-q[0]}" y2="${2*cur.o[1]-q[1]}"/>`).join("");
+ [...tabs.children].forEach((b,j)=>b.className=j==i?"":"alt");setT(0)}
+PS.forEach((s,i)=>{const b=document.createElement("button");b.textContent=s.n;b.onclick=()=>pick(i);tabs.appendChild(b)});
+function setT(a){tri.setAttribute("transform",`rotate(${a} ${cur.o[0]} ${cur.o[1]})`);lines.setAttribute("opacity",Math.max(0,(a-120)/60));deg.textContent=Math.round(a)+"°";sl.value=a;
+ note.textContent=a>=179.5?"تصویر شکل ساخته شد! خط‌چین‌ها نشان می‌دهند هر رأس و تصویرش از O به یک فاصله‌اند.":"دقت کنید: هر رأس و تصویرش، روی یک خط از O قرار دارند و فاصله‌شان تا O برابر است."}
+pt.onclick=()=>rm?setT(180):run(setT);rt.onclick=()=>setT(0);sl.oninput=()=>setT(+sl.value);pick(0);
+// cards
+const grid=document.getElementById("grid"),cards=[];
+S.forEach(s=>{
+ const d=document.createElement("div");d.className="card";
+ d.innerHTML=`<div class="t"><span>شکل ${s.n}</span><button class="alt">بچرخان</button></div><svg viewBox="0 0 200 160" role="img" aria-label="شکل ${s.n}"><g class="o">${s.s}</g><g class="c" id="c-${s.n}">${s.s}</g><circle class="dot" cx="${s.o[0]}" cy="${s.o[1]}" r="4.5"/></svg><div class="v"></div>`;
+ grid.appendChild(d);
+ const g=d.querySelector(".c"),v=d.querySelector(".v"),b=d.querySelector("button");
+ const c={d,play(){d.className="card";v.className="v";v.textContent="";const draw=a=>g.setAttribute("transform",`rotate(${a} ${s.o[0]} ${s.o[1]})`);
+  const fin=()=>{d.classList.add(s.y?"yes":"no");v.classList.add(s.y?"yes":"no");v.textContent=s.y?"✓ منطبق شد؛ O مرکز تقارن است":"✗ منطبق نشد؛ O مرکز تقارن نیست"};
+  rm?(draw(180),fin()):run(draw,fin)},
+  reset(){g.removeAttribute("transform");d.className="card";v.className="v";v.textContent=""}};
+ b.onclick=()=>c.play();cards.push(c)});
+all.onclick=()=>cards.forEach((c,i)=>setTimeout(()=>c.play(),i*350));
+rall.onclick=()=>cards.forEach(c=>c.reset());
+</script>
+<footer>طراحی آموزشی ویژهٔ کلاس ریاضی هشتم | دبیر ریاضی پایه هشتم دهقان</footer>
+<script>
+// Regular polygons: pentagon, hexagon, heptagon and octagon, as printed on page 33.
+const polygons=[{n:'پنج‌ضلعی منتظم',s:5},{n:'شش‌ضلعی منتظم',s:6},{n:'هفت‌ضلعی منتظم',s:7},{n:'هشت‌ضلعی منتظم',s:8}];
+function polygonPoints(n){const r=66,cx=100,cy=90;return Array.from({length:n},(_,i)=>{let a=(-90+i*360/n)*Math.PI/180;return `${cx+r*Math.cos(a)},${cy+r*Math.sin(a)}`}).join(' ')}
+function makePoly(item,target){const yes=target===180?item.s%2===0:item.s%4===0;const root=document.createElement('article');root.className='polycard';root.innerHTML=`<div class="tag">${item.n}</div><svg viewBox="0 0 200 180" aria-label="${item.n}"><polygon points="${polygonPoints(item.s)}" fill="#a6b3f933" stroke="#8555c4" stroke-width="3"/><polygon class="moving" points="${polygonPoints(item.s)}" fill="#ffae4c33" stroke="#f08a2e" stroke-width="3" stroke-dasharray="6 4"/><circle cx="100" cy="90" r="4.5" fill="#e84057"/></svg><div class="answer"><span>پیش‌بینی:</span><label><input type="radio" name="p${target}_${item.s}" value="yes"> بله</label><label><input type="radio" name="p${target}_${item.s}" value="no"> خیر</label></div><input type="range" min="0" max="${target}" value="0" step="1" aria-label="زاویه چرخش"><div class="controls"><button class="play">▶ بچرخان</button><button class="alt reset">↺ شروع دوباره</button><span class="angle">۰°</span></div><div class="result" aria-live="polite"></div>`;
+const moving=root.querySelector('.moving'),range=root.querySelector('input[type=range]'),angle=root.querySelector('.angle'),result=root.querySelector('.result');let token=0;
+function set(a){moving.setAttribute('transform',`rotate(${a} 100 90)`);range.value=a;angle.textContent=Math.round(a)+'°'}
+function finish(){let selected=root.querySelector('input[type=radio]:checked');result.style.color=yes?'var(--ok)':'var(--no)';result.textContent=(yes?'✓ روی خودش منطبق می‌شود.':'✗ روی خودش منطبق نمی‌شود.')+(selected?(selected.value===(yes?'yes':'no')?' پیش‌بینی‌ات درست بود!':' پیش‌بینی‌ات را دوباره بررسی کن.'):'')}
+root.querySelector('.play').onclick=()=>{let t=++token,begin=performance.now(),start=+range.value;const duration=window.matchMedia('(prefers-reduced-motion:reduce)').matches?0:1500;function tick(now){if(t!==token)return;let q=duration?Math.min(1,(now-begin)/duration):1;set(start+(target-start)*(1-Math.pow(1-q,3)));if(q<1)requestAnimationFrame(tick);else finish()}requestAnimationFrame(tick)};
+root.querySelector('.reset').onclick=()=>{token++;set(0);result.textContent='';root.querySelectorAll('input[type=radio]').forEach(x=>x.checked=false)};range.oninput=()=>{token++;set(+range.value);result.textContent='';if(+range.value===target)finish()};return root}
+for(const t of [180,90]){const holder=document.getElementById('polys'+t);polygons.forEach(p=>holder.appendChild(makePoly(p,t)))}
+</script>
+</body>
+</html>
