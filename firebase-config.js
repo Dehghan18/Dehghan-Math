@@ -1,7 +1,10 @@
-/* اطلاعات عمومی تنظیمات پروژه Firebase را اینجا وارد کنید. رمز یا کلید خصوصی وارد نکنید. */
+/* Firebase Web App configuration — public identifiers only */
 window.DEHGHAN_FIREBASE_CONFIG = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBuj1jONZSoxx-LqGnDR8o_6gkpU8Ktr-o",
+  authDomain: "dehghan-math-academy.firebaseapp.com",
+  projectId: "dehghan-math-academy",
+  storageBucket: "dehghan-math-academy.firebasestorage.app",
+  messagingSenderId: "217622469490",
+  appId: "1:217622469490:web:e12abcabe094fcf2a15beb",
+  measurementId: "G-MVF8W8V0NX"
 };
