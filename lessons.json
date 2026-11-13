@@ -17,14 +17,14 @@
         {
           "title": "مرکز تقارن و دوران",
           "description": "چرخش ۱۸۰ درجه و شناخت مرکز تقارن با تمرین‌های تعاملی",
-          "url": "symmetry.html",
-          "icon": "🔄"
+          "url": "lessons/chapter-03/symmetry.html",
+          "image": "lesson-art/chapter-03/symmetry.webp"
         },
         {
           "title": "دنیای چهارضلعی‌ها",
           "description": "شناخت مربع، مستطیل، لوزی و متوازی‌الاضلاع",
-          "url": "quadrilaterals.html",
-          "icon": "🔷"
+          "url": "lessons/chapter-03/quadrilaterals.html",
+          "image": "lesson-art/chapter-03/quadrilaterals.webp"
         }
       ]
     },
