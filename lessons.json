@@ -3,7 +3,14 @@
     {
       "id": 1,
       "title": "عددهای صحیح و گویا",
-      "lessons": []
+      "lessons": [
+        {
+          "title": "مأموریت سرزمین اعداد صحیح",
+          "description": "آموزش بازی‌محور محور اعداد، قرینه، قدرمطلق، مقایسه، جمع و تفریق؛ ۱۲ چالش و کارنامه ستاره‌ای",
+          "url": "lessons/chapter-01/integers-review.html",
+          "image": "lesson-art/chapter-01/integers-review.svg"
+        }
+      ]
     },
     {
       "id": 2,
