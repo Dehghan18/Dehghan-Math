@@ -41,7 +41,7 @@ main{max-width:1100px}h1{font-size:clamp(1.6rem,4vw,2.5rem);color:#244da0}h2{bor
 .box,.card{box-shadow:0 8px 28px #294c7812;border-radius:20px}.box{padding:20px}button{background:#3659a6;color:white;transition:transform .15s}button:hover{transform:translateY(-1px)}button.alt{border-color:#3659a6;color:#3659a6}.polygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px;margin-top:12px}.polycard{border:1px solid var(--line);border-radius:16px;padding:12px;background:#f9fbff}.polycard svg{max-height:200px}.polycard .result{min-height:2em;font-weight:800}.polycard .controls{display:flex;gap:6px;flex-wrap:wrap}.polycard .controls button{font-size:.85rem;padding:5px 10px}.polycard input{width:100%}.polycard .answer{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0}.polycard label{cursor:pointer}.tag{background:#e8efff;padding:3px 10px;border-radius:12px;font-weight:800}.credit{display:inline-block;background:#e5ebff;border-radius:12px;padding:2px 12px}footer{text-align:center;padding:28px;font-weight:800;color:#4563a5}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101a2e;--ink:#edf2ff;--card:#1d2c46;--line:#394a69}.polycard{background:#233453}h1,h3{color:#b5c9ff}.tag,.credit{background:#31466b}button.alt{color:#c4d5ff;border-color:#c4d5ff}}
 </style>
-<link rel="stylesheet" href="engagement.css">
+<link rel="stylesheet" href="engagement.css"><link rel="stylesheet" href="ratings.css">
 </head>
 <body>
 <main>
@@ -137,6 +137,6 @@ root.querySelector('.play').onclick=()=>{let t=++token,begin=performance.now(),s
 root.querySelector('.reset').onclick=()=>{token++;set(0);result.textContent='';root.querySelectorAll('input[type=radio]').forEach(x=>x.checked=false)};range.oninput=()=>{token++;set(+range.value);result.textContent='';if(+range.value===target)finish()};return root}
 for(const t of [180,90]){const holder=document.getElementById('polys'+t);polygons.forEach(p=>holder.appendChild(makePoly(p,t)))}
 </script>
-<script defer src="engagement.js"></script>
+<script defer src="engagement.js"></script><script defer src="firebase-config.js"></script><script defer src="ratings.js"></script>
 </body>
 </html>
