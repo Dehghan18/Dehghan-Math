@@ -32,6 +32,12 @@
           "description": "شناخت مربع، مستطیل، لوزی و متوازی‌الاضلاع",
           "url": "lessons/chapter-03/quadrilaterals.html",
           "image": "lesson-art/chapter-03/quadrilaterals.webp"
+        },
+        {
+          "title": "ماموریت خطوط هم‌مسیر: توازی و تعامد",
+          "description": "کشف زاویه‌ها، رسم خط موازی، آزمایش تعامد و بازی پایانی؛ مطابق صفحات ۳۴ تا ۳۷ کتاب",
+          "url": "lessons/chapter-03/parallelism.html",
+          "image": "lesson-art/chapter-03/parallelism.svg"
         }
       ]
     },
