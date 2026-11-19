@@ -29,7 +29,7 @@ function stage2(){return `<h2>📐 ایستگاه ۲: شکارچی زاویه‌
 
 let angleShift=0;
 function angleUpdate(){const a=+$('angleRange').value,rad=a*Math.PI/180,dx=95/Math.tan(rad),bottom=155+angleShift,top=bottom+dx;
-const label=(x,y,n)=>`<g transform="translate(${x+42*Math.cos(rad/2)},${y-42*Math.sin(rad/2)})"><path d="M-6,-17 L0,-23 L6,-17" stroke="#ffd36c" stroke-width="2.2" fill="none"/><text x="0" y="0" text-anchor="middle" fill="#ffd36c" font-size="18" font-weight="bold">${fa(n)}</text></g>`;
+const label=(x,y,n)=>`<g transform="translate(${x+61*Math.cos(rad/2)},${y-61*Math.sin(rad/2)})"><path d="M-6,-17 L0,-23 L6,-17" stroke="#ffd36c" stroke-width="2.2" fill="none"/><text x="0" y="0" text-anchor="middle" fill="#ffd36c" font-size="18" font-weight="bold">${fa(n)}</text></g>`;
 const arc=(x,y)=>`<path d="M${x+28},${y} A28,28 0 0 0 ${x+28*Math.cos(rad)},${y-28*Math.sin(rad)}" fill="none" stroke="#ffd36c" stroke-width="3.5"/>`;
 let s=line(16,65,324,65)+line(16,160,324,160)+line(bottom-55/Math.tan(rad),215,top+45/Math.tan(rad),20,'#ff86cb',5);
 s+=arc(top,65)+arc(bottom,160)+label(top,65,1)+label(bottom,160,2)+`<circle cx="${top}" cy="65" r="5" fill="#ffd36c"/><circle cx="${bottom}" cy="160" r="5" fill="#ffd36c"/><text x="22" y="51" fill="#66eadc">a</text><text x="22" y="146" fill="#66eadc">b</text><text x="172" y="210" text-anchor="middle" fill="#fff">a ∥ b</text>`;
@@ -78,14 +78,14 @@ if(i===1){
 const x=170,y=146,theta=36;
 z=line(26,y,314,y,c,4)+line(x,y,267,75,p,4);
 z+=sector(x,y,36,0,theta,g)+sector(x,y,46,theta,180,other);
-z+=L(224,122,'۳۶°')+L(113,105,'?',other,23)+`<circle cx="${x}" cy="${y}" r="5" fill="${g}"/>`;
+z+=L(x+76*Math.cos(theta*Math.PI/360),y-76*Math.sin(theta*Math.PI/360),'۳۶°')+L(x+79*Math.cos((theta+180)*Math.PI/360),y-79*Math.sin((theta+180)*Math.PI/360),'?',other,23)+`<circle cx="${x}" cy="${y}" r="5" fill="${g}"/>`;
 }
 if(i===2){z=line(30,105,310,105,p,5)+line(105,25,105,195,c,5)+line(235,25,235,195,c,5)+right(105,105)+right(235,105)+L(83,25,'a','#fff')+L(247,25,'b','#fff')+L(301,94,'c','#fff')}
 if(i===3){
 const x=170,y=142,theta=25;
 z=line(25,y,315,y,c,4)+line(x,y,274,93,p,4);
 z+=sector(x,y,36,theta,180,g)+sector(x,y,46,0,theta,other);
-z+=L(118,116,'۱۵۵°',g,17)+L(213,102,'?',other,23);
+z+=L(x+79*Math.cos((theta+180)*Math.PI/360),y-79*Math.sin((theta+180)*Math.PI/360),'۱۵۵°',g,17)+L(x+76*Math.cos(theta*Math.PI/360),y-76*Math.sin(theta*Math.PI/360),'?',other,23);
 }
 if(i===4){
 // Single arrow on each oblique side, double arrow on horizontal sides; no diagonals.
