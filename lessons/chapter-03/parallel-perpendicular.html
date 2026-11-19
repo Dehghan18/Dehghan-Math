@@ -17,7 +17,7 @@ const names=['ریل‌ها','زاویه‌ها','تعامد','مهندس','قا
 function award(key){if(earned.has(key))return;earned.add(key);points+=10;updateStatus();}
 function updateStatus(){ $('stageNo').textContent=fa(stage+1)+' از ۷';$('score').textContent=fa(points)+' ⭐';$('badges').textContent=fa(new Set([...earned].map(x=>x.split(':')[0])).size)+' از ۷';$('bar').style.width=((stage+1)/7*100)+'%';document.querySelectorAll('.nav button').forEach((b,i)=>{b.classList.toggle('active',i===stage);b.setAttribute('aria-current',i===stage?'step':'false')});$('prev').disabled=stage===0;$('next').textContent=stage===6?'🏆 مشاهده کارنامه':'مرحله بعد ←'}
 function drawNav(){ $('nav').innerHTML=names.map((n,i)=>'<button type="button" data-stage="'+i+'"><span>'+icons[i]+'</span>'+n+'</button>').join('');$('nav').querySelectorAll('button').forEach(b=>b.onclick=()=>go(+b.dataset.stage))}
-function go(n){if(n<0)return;if(n>6){go(6);return;}stage=n;chosen=null;render();requestAnimationFrame(()=>{const y=$('content').getBoundingClientRect().top+window.scrollY-12;window.scrollTo({top:y,behavior:'smooth'})})}
+function go(n){if(n<0)return;if(n>6){go(6);return;}stage=n;chosen=null;render();requestAnimationFrame(()=>{const y=document.querySelector('.status').getBoundingClientRect().top+window.scrollY-12;window.scrollTo({top:y,behavior:'smooth'})})}
 function reply(text,ok=false){const e=$('feedback');if(e){e.className='answer '+(ok?'ok':'no');e.innerHTML=fixDegrees(text);}if(ok)award(stage+':main')}
 function svgFrame(inner){return '<div class="play"><svg viewBox="0 0 340 220" role="img" aria-label="شکل هندسی تعاملی">'+inner+'</svg></div>'}
 const line=(x1,y1,x2,y2,color='#66eadc',w=4)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${w}" stroke-linecap="round"/>`;
@@ -29,7 +29,7 @@ function stage2(){return `<h2>📐 ایستگاه ۲: شکارچی زاویه‌
 
 let angleShift=0;
 function angleUpdate(){const a=+$('angleRange').value,rad=a*Math.PI/180,dx=95/Math.tan(rad),bottom=155+angleShift,top=bottom+dx;
-const label=(x,y,n)=>`<g transform="translate(${x+61*Math.cos(rad/2)},${y-61*Math.sin(rad/2)})"><path d="M-6,-17 L0,-23 L6,-17" stroke="#ffd36c" stroke-width="2.2" fill="none"/><text x="0" y="0" text-anchor="middle" fill="#ffd36c" font-size="18" font-weight="bold">${fa(n)}</text></g>`;
+const label=(x,y,n)=>`<g transform="translate(${x+47*Math.cos(rad/2)},${y-47*Math.sin(rad/2)})"><path d="M-6,-17 L0,-23 L6,-17" stroke="#ffd36c" stroke-width="2.2" fill="none"/><text x="0" y="0" text-anchor="middle" fill="#ffd36c" font-size="18" font-weight="bold">${fa(n)}</text></g>`;
 const arc=(x,y)=>`<path d="M${x+28},${y} A28,28 0 0 0 ${x+28*Math.cos(rad)},${y-28*Math.sin(rad)}" fill="none" stroke="#ffd36c" stroke-width="3.5"/>`;
 let s=line(16,65,324,65)+line(16,160,324,160)+line(bottom-55/Math.tan(rad),215,top+45/Math.tan(rad),20,'#ff86cb',5);
 s+=arc(top,65)+arc(bottom,160)+label(top,65,1)+label(bottom,160,2)+`<circle cx="${top}" cy="65" r="5" fill="#ffd36c"/><circle cx="${bottom}" cy="160" r="5" fill="#ffd36c"/><text x="22" y="51" fill="#66eadc">a</text><text x="22" y="146" fill="#66eadc">b</text><text x="172" y="210" text-anchor="middle" fill="#fff">a ∥ b</text>`;
@@ -65,6 +65,7 @@ const quiz=[{q:'اگر دو زاویه متناظر روی خط‌های موا�
 function quizGraphic(i){
 const c='#66eadc',p='#ff87c9',g='#ffd36c',other='#ad91ff';let z='';
 const L=(x,y,t,color=g,size=18)=>`<text x="${x}" y="${y}" text-anchor="middle" direction="ltr" unicode-bidi="isolate" fill="${color}" font-family="Tahoma,Arial,sans-serif" font-weight="bold" font-size="${size}">${t}</text>`;
+const middle=(x,y,r,a,b,t,color=g,size=18)=>{const m=(a+b)*Math.PI/360;return L(x+r*Math.cos(m),y-r*Math.sin(m)+size*.34,t,color,size)};
 const right=(x,y,dx=1,dy=-1)=>`<path d="M ${x+dx*17} ${y} v ${dy*17} h ${-dx*17}" stroke="${g}" stroke-width="3" fill="none"/>`;
 const sector=(x,y,r,start,end,color=g)=>{const a=start*Math.PI/180,b=end*Math.PI/180;return `<path d="M ${x+r*Math.cos(a)} ${y-r*Math.sin(a)} A ${r} ${r} 0 ${Math.abs(end-start)>180?1:0} ${end>start?0:1} ${x+r*Math.cos(b)} ${y-r*Math.sin(b)}" stroke="${color}" stroke-width="3.5" fill="none"/>`};
 if(i===0){
@@ -72,20 +73,20 @@ if(i===0){
 const xTop=184.6,xBottom=150,theta=70;
 z=line(22,58,318,58,c,4)+line(22,153,318,153,c,4)+line(130,208,202,10,p,4);
 z+=sector(xTop,58,25,0,theta)+sector(xBottom,153,25,0,theta);
-z+=L(223,36,'۷۰°')+L(187,128,'?',g,23);
+z+=middle(xTop,58,46,0,theta,'۷۰°')+middle(xBottom,153,46,0,theta,'?',g,23);
 }
 if(i===1){
 const x=170,y=146,theta=36;
 z=line(26,y,314,y,c,4)+line(x,y,267,75,p,4);
 z+=sector(x,y,36,0,theta,g)+sector(x,y,46,theta,180,other);
-z+=L(x+76*Math.cos(theta*Math.PI/360),y-76*Math.sin(theta*Math.PI/360),'۳۶°')+L(x+79*Math.cos((theta+180)*Math.PI/360),y-79*Math.sin((theta+180)*Math.PI/360),'?',other,23)+`<circle cx="${x}" cy="${y}" r="5" fill="${g}"/>`;
+z+=middle(x,y,68,0,theta,'۳۶°')+middle(x,y,78,theta,180,'?',other,23)+`<circle cx="${x}" cy="${y}" r="5" fill="${g}"/>`;
 }
 if(i===2){z=line(30,105,310,105,p,5)+line(105,25,105,195,c,5)+line(235,25,235,195,c,5)+right(105,105)+right(235,105)+L(83,25,'a','#fff')+L(247,25,'b','#fff')+L(301,94,'c','#fff')}
 if(i===3){
 const x=170,y=142,theta=25;
 z=line(25,y,315,y,c,4)+line(x,y,274,93,p,4);
 z+=sector(x,y,36,theta,180,g)+sector(x,y,46,0,theta,other);
-z+=L(x+79*Math.cos((theta+180)*Math.PI/360),y-79*Math.sin((theta+180)*Math.PI/360),'۱۵۵°',g,17)+L(x+76*Math.cos(theta*Math.PI/360),y-76*Math.sin(theta*Math.PI/360),'?',other,23);
+z+=middle(x,y,82,theta,180,'۱۵۵°',g,17)+middle(x,y,72,0,theta,'?',other,23);
 }
 if(i===4){
 // Single arrow on each oblique side, double arrow on horizontal sides; no diagonals.
